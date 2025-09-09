@@ -2,7 +2,7 @@
 let clubData, clubMetrics, noCompressionData, smashFactors;
 
 async function loadData() {
-  const res = await fetch('data/golfdata.json');
+  const res = await fetch('./data/golfdata.json');
   const json = await res.json();
 
   clubData = json.clubData;
