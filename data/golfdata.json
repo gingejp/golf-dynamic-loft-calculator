@@ -36,7 +36,7 @@
 	  "pw": { "name": "Pitching Wedge", "loft": 45, "swingSpeed": 80,
 		"carry": { "60": 96, "70": 113, "80": 129, "90": 145, "100": 161, "110": 177, "120": 193, "130": 209 }
 	  }
-	}
+	},
 	
 	"clubMetrics": {
 	  "driver":   { "dynamicLoft": 13, "launchAngle": 12, "spinRate": 2500 },
@@ -51,7 +51,7 @@
 	  "8-iron":   { "dynamicLoft": 25, "launchAngle": 19, "spinRate": 8000 },
 	  "9-iron":   { "dynamicLoft": 28, "launchAngle": 20, "spinRate": 8600 },
 	  "pw":       { "dynamicLoft": 31, "launchAngle": 23, "spinRate": 9300 }
-	}
+	},
 
 	"noCompressionData": {
 	  "driver":   { "carry": 160, "swingSpeed": 85, "spin": 3400 },
@@ -66,7 +66,7 @@
 	  "8-iron":   { "carry": 90, "swingSpeed": 74, "spin": 9000 },
 	  "9-iron":   { "carry": 75, "swingSpeed": 73, "spin": 9700 },
 	  "pw":       { "carry": 60, "swingSpeed": 72, "spin": 11000 }
-	}
+	},
 	
 	"smashFactors": {
 	  "driver":  { "high": 1.45, "low": 1.25 },
