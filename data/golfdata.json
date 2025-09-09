@@ -1,5 +1,3 @@
-// Golf data for real world distances from scratch golfer and also expected distances with poor compression.
-
 {
 	"clubData": {
 	  driver: {	name: "Driver", loft: 10.5, swingSpeed: 108,
