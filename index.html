@@ -1,0 +1,84 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Golf Dynamic Loft Calculator | Improve Your Strike Efficiency</title>
+  <meta name="description" content="Analyze your golf swing efficiency and dynamic loft with this free online calculator. Optimize launch, spin, and carry distance for better performance." />
+  <meta name="keywords" content="golf calculator, dynamic loft, strike efficiency, golf swing analysis, carry distance, launch angle, spin rate" />
+  <meta name="author" content="John Pascoe" />
+  <link rel="canonical" href="https://gingejp.github.io/golf-dynamic-loft-calculator/" />
+  <meta property="og:title" content="Golf Dynamic Loft Calculator" />
+  <meta property="og:description" content="Free tool to analyze your golf swing and optimize dynamic loft for better distance and accuracy." />
+  <meta property="og:image" content="https://gingejp.github.io/golf-dynamic-loft-calculator/images/dynamic-loft.jpg" />
+  <meta property="og:url" content="https://gingejp.github.io/golf-dynamic-loft-calculator/" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <link rel="icon" href="images/golf-icon.png" type="image/png" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+  <header id="pageHeader">
+    <a href="#contact">
+      <img src="images/advertise-here-logo.png" alt="Advertise Here" title="Interested in advertising? Click to contact me!" />
+    </a>
+    <h1>Golf Dynamic Loft From Distance Calculator</h1>
+	    <a href="#contact">
+      <img src="images/advertise-here-logo.png" alt="Advertise Here" title="Interested in advertising? Click to contact me!" />
+    </a>
+  </header>
+
+  <main>	
+  <div class="container">
+    <div class="form-section">
+      <label for="club">Select Club:</label>
+      <select id="club"></select>
+
+      <label for="swingSpeed">Swing Speed (mph): (Range 60 - 130):</label>
+      <input type="number" id="swingSpeed" value="90" />
+
+      <label for="actualCarry">Actual Carry Distance (yards):</label>
+      <input type="number" id="actualCarry" value="230" />
+
+      <button onclick="calculate()">Calculate & Visualize</button>
+      <div id="results"></div>
+    </div>
+
+    <div class="canvas-section">
+      <canvas id="trajectoryCanvas" width="500" height="300"></canvas>
+      <div id="adviceBox"></div>
+      <div id="loftWarning"></div>
+    </div>
+  </div>
+
+  <section>
+    <h2>What Is Dynamic Loft and Why Is It Important?</h2>
+    <p><strong>Dynamic loft</strong> is the angle of the clubface at the moment it contacts the ball. It differs from <em>static loft</em>, which is the club’s built-in angle when stationary. Dynamic loft is influenced by how the golfer swings—wrist position, shaft lean, and angle of attack all affect it.</p>
+    <p><strong>Why dynamic loft matters:</strong> It controls the initial height (launch angle) and spin of the ball. Too much dynamic loft sends the ball too high, causing excess spin and loss of distance. Too little loft produces low shots that may roll too far and be hard to control. Finding the right dynamic loft helps maximize distance and accuracy by ensuring an optimal ball flight.</p>
+    <p>It also reflects <strong>swing efficiency</strong>. Golfers who “cast” or flip their wrists often increase dynamic loft too much, leading to weaker shots. Conversely, players who maintain proper shaft lean deliver lower dynamic loft for better compression and distance.</p>
+    <p>Different clubs and shots require different dynamic lofts. Drivers usually benefit from lower dynamic loft to maximize distance, while wedges need higher loft for control and spin.</p>
+    <p><strong>In summary:</strong> Dynamic loft is a key factor in shot consistency, distance, and control. Learning to manage it helps golfers improve ball flight and overall performance.</p>
+  </section>
+
+  <div class="illustration-section">
+    <img src="images/dynamic-loft.jpg" alt="Illustration of dynamic loft" />
+    <p class="caption">Dynamic loft Illustration</p>
+  </div>
+
+  <section class="contact-section" id="contact">
+    <h3>📬 Contact Me</h3>
+    <p>If you’d like to advertise on this site or collaborate, feel free to reach out:</p>
+    <p><strong>Email:</strong> <a href="mailto:gingejp@yahoo.com">gingejp@yahoo.com</a></p>
+    <div class="advertise-logo">
+      <img src="images/advertise-here-logo.png" alt="Advertise Here" />
+    </div>
+  </section>
+  <main>
+	
+  <footer class="site-footer">
+ <p>&copy; 2025 Golf Dynamic Loft Calculator. <a href="#contact">Contact me</a></p>
+</footer>
+
+	<script src="script.js"></script>
+</body>
+</html>
