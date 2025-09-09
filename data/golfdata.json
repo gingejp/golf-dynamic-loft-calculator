@@ -1,5 +1,7 @@
+// Golf data for real world distances from scratch golfer and also expected distances with poor compression.
+
 {
-	"clubData" = {
+	"clubData": = {
 	  driver: {	name: "Driver", loft: 10.5, swingSpeed: 108,
 		carry: { "60": 158, "70": 185, "80": 211, "90": 238, "100": 264, "110": 290, "120": 317, "130": 343 }
 	  },
