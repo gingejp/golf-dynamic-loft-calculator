@@ -1,7 +1,7 @@
 // Golf data for real world distances from scratch golfer and also expected distances with poor compression.
 
 {
-	"clubData": = {
+	"clubData": {
 	  driver: {	name: "Driver", loft: 10.5, swingSpeed: 108,
 		carry: { "60": 158, "70": 185, "80": 211, "90": 238, "100": 264, "110": 290, "120": 317, "130": 343 }
 	  },
@@ -40,7 +40,7 @@
 	  }
 	};
 	
-	"clubMetrics" = {
+	"clubMetrics": {
 	  "driver":   { dynamicLoft: 13, launchAngle: 12, spinRate: 2500 },
 	  "3-wood":   { dynamicLoft: 15, launchAngle: 14, spinRate: 3600 },
 	  "5-wood":   { dynamicLoft: 17, launchAngle: 17, spinRate: 4300 },
@@ -55,7 +55,7 @@
 	  "pw":       { dynamicLoft: 31, launchAngle: 23, spinRate: 9300 }
 	};
 
-	"noCompressionData" = {
+	"noCompressionData": {
 	  "driver":   { carry: 160, swingSpeed: 85, spin: 3400 },
 	  "3-wood":   { carry: 145, swingSpeed: 83, spin: 4100 },
 	  "5-wood":   { carry: 135, swingSpeed: 81, spin: 4700 },
@@ -70,7 +70,7 @@
 	  "pw":       { carry: 60,  swingSpeed: 72, spin: 11000 }
 	};
 	
-	"smashFactors" = {
+	"smashFactors": {
 	  driver:   { high: 1.45, low: 1.25 },
 	  "3-wood":  { high: 1.42, low: 1.23 },
 	  "5-wood":  { high: 1.40, low: 1.22 },
