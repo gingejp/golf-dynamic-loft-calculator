@@ -107,8 +107,8 @@ canvas {
   color: red;
 }
 
-/* h2 section */
-h2 {
+/* Dynamic loft explanation section */
+.loft-section {
   margin-top: 40px;
   padding: 20px;
   background-color: #f9f9f9;
@@ -117,19 +117,34 @@ h2 {
   border-left: 4px solid #4CAF50;
 }
 
-/* Illustration section */
+/* Illustration/swing advice section */
 .illustration-section {
-  text-align: center;
-  margin-top: 30px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+  align-items: flex-start;
+  margin-top: 2rem;
 }
 
-.illustration-section img {
+.illustration-content,
+.swing-advice {
+  flex: 1;
+  min-width: 280px;
+}
+
+.illustration-content img {
   max-width: 100%;
   height: auto;
-  border-radius: 8px;
-  box-shadow: 0 0 10px rgba(0,0,0,0.1);
-  display: block;
-  margin: 0 auto;
+}
+
+.swing-advice p {
+  font-size: 1.2rem;
+  line-height: 1.5;
+}
+
+.swing-advice img {
+  max-width: 100%;
+  height: auto;
 }
 
 .caption {
@@ -139,14 +154,18 @@ h2 {
   font-size: 24px;
 }
 
-/* Contact section */
-.contact-section {
-  text-align: center;
-  margin-top: 40px;
-  padding: 20px;
-  background-color: #fff;
-  border-radius: 8px;
-  box-shadow: 0 0 10px rgba(0,0,0,0.05);
+/* Info/contact section */
+#info-sections {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+  justify-content: space-between;
+  margin-top: 2rem;
+}
+
+#info-sections > div {
+  flex: 1;
+  min-width: 280px;
 }
 
 .advertise-logo {
