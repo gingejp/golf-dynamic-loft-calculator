@@ -130,6 +130,9 @@ canvas {
 .swing-advice {
   flex: 1;
   min-width: 280px;
+  border: 1px solid #ccc; /* light gray border */
+  padding: 1rem;
+  border-radius: 8px;     /* rounded corners */
 }
 
 .illustration-content img {
