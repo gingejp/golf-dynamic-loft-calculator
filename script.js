@@ -204,7 +204,7 @@ function calculate() {
   `;
   
   resultsHTML += `<p style="font-size:0.85rem;color:#666;">
-	Scratch carry adjusted for loft: ${inputLoft}° → ${Math.round(adjustedScratchSpeed)} mph swing speed
+	Scratch carry adjusted for loft: ${staticLoft}° → ${Math.round(adjustedScratchSpeed)} mph swing speed
 	</p>`;
 	
   resultsHTML += driverFlag
