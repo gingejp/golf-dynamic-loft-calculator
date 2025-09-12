@@ -92,7 +92,7 @@ function calculate() {
   const loftDelta = standardLoft - inputLoft; // positive if user input is stronger
 
   // You can tweak this multiplier to dial in realism
-  const loftMultiplier = 0.015; // 1.5% swing speed change per degree
+  const loftMultiplier = 0.012; // 1.5% swing speed change per degree
 //  const adjustedScratchSpeed = scratchSpeed * (1 + loftDelta * loftMultiplier);
   const adjustedScratchSpeed = clubData[club]?.swingSpeed * (1 + loftDelta * loftMultiplier);
   const adjustedUserSpeed = swingSpeed * (1 + loftDelta * loftMultiplier);
