@@ -192,7 +192,7 @@ function calculate() {
   resultsHTML += `
     <strong>Your Measured Carry:</strong> ${actualCarry} yards<br/>
     <strong>Scratch Carry @ Your Swing Speed:</strong> ${scratchCarry ?? "N/A"} yards @ ${swingSpeed} mph<br/>
-    <strong>Scratch Carry @ Full Swing Speed:</strong> ${scratchMaxCarry ?? "N/A"} yards @ ${adjustedScratchSpeed} mph<br/>
+    <strong>Scratch Carry @ Full Swing Speed:</strong> ${scratchMaxCarry ?? "N/A"} yards @ ${(Math.round(adjustedScratchSpeed * 100) / 100).toFixed(1)} mph<br/>
     <strong>Performance vs. Scratch @ Your Swing Speed:</strong> ${(actualCarry - scratchCarry).toFixed(1)} yards<br/>
     <strong>Performance vs. Scratch @ Full Swing Speed:</strong> ${(actualCarry - scratchMaxCarry).toFixed(1)} yards<br/>
     <strong>Club Static Loft:</strong> ${staticLoft.toFixed(1)}°<br/>
