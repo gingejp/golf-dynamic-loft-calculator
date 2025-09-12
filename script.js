@@ -59,38 +59,6 @@ function getScratchCarry(club, swingSpeed) {
   return null;
 }
 
-function getInterpolatedCarryByLoft(swingSpeed, inputLoft) {
-  const loftCarryPairs = [];
-
-  for (const [key, club] of Object.entries(clubData)) {
-    const loft = club.loft;
-    const carry = club.carry?.[swingSpeed.toString()];
-    if (typeof loft === "number" && typeof carry === "number") {
-      loftCarryPairs.push({ loft, carry });
-    }
-  }
-
-  // Sort by loft
-  loftCarryPairs.sort((a, b) => a.loft - b.loft);
-
-  // Interpolate
-  for (let i = 0; i < loftCarryPairs.length - 1; i++) {
-    const lower = loftCarryPairs[i];
-    const upper = loftCarryPairs[i + 1];
-
-    if (inputLoft >= lower.loft && inputLoft <= upper.loft) {
-      const ratio = (inputLoft - lower.loft) / (upper.loft - lower.loft);
-      return Math.round(lower.carry + ratio * (upper.carry - lower.carry));
-    }
-  }
-
-  // Outside range fallback
-  if (inputLoft < loftCarryPairs[0].loft) return loftCarryPairs[0].carry;
-  if (inputLoft > loftCarryPairs[loftCarryPairs.length - 1].loft) return loftCarryPairs[loftCarryPairs.length - 1].carry;
-
-  return null;
-}
-
 function calculate() {
   const club = document.getElementById("club").value;
   
@@ -117,10 +85,21 @@ function calculate() {
   }
 
   const metrics = clubMetrics[club];
-  const inputLoft = parseFloat(document.getElementById("staticLoft").value);
-  const scratchCarry = getInterpolatedCarryByLoft(swingSpeed, inputLoft);
+  const scratchCarry = getScratchCarry(club, swingSpeed);
   const scratchSpeed = clubData[club]?.swingSpeed;
-  const scratchMaxCarry = getScratchCarry(club, scratchSpeed);
+  const inputLoft = parseFloat(document.getElementById("staticLoft").value);
+  const standardLoft = clubData[club]?.loft;
+  const loftDelta = standardLoft - inputLoft; // positive if user input is stronger
+
+  // You can tweak this multiplier to dial in realism
+  const loftMultiplier = 0.015; // 1.5% swing speed change per degree
+  const adjustedScratchSpeed = scratchSpeed * (1 + loftDelta * loftMultiplier);
+  const scratchMaxCarry = getScratchCarry(club, adjustedScratchSpeed);
+//  const scratchMaxCarry = getScratchCarry(club, scratchSpeed);
+  document.getElementById("results").innerHTML += `<p style="font-size:0.85rem;color:#666;">
+	Scratch carry adjusted for loft: ${inputLoft}° → ${Math.round(adjustedScratchSpeed)} mph swing speed
+	</p>`;
+  
   const baselineCarry = noCompressionData[club].carry;
   const staticLoft = clubData[club]?.loft;
   const scratchDynamicLoft = metrics.dynamicLoft;
