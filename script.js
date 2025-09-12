@@ -15,9 +15,28 @@ async function loadData() {
  
 function populateClubSelector() {
   const clubSelect = document.getElementById("club");
-  clubSelect.innerHTML = Object.entries(clubData)
-    .map(([key, value]) => `<option value="${key}">${value.name} (${value.loft}°)</option>`)
-    .join("");
+  clubSelect.innerHTML = ""; // Clear existing options
+
+  clubData.forEach(club => {
+    const option = document.createElement("option");
+    option.value = club.name;
+    option.textContent = club.name;
+    clubSelect.appendChild(option);
+  });
+
+  // Set initial loft based on first club
+  if (clubData.length > 0) {
+    document.getElementById("staticLoft").value = clubData[0].loft;
+  }
+
+  // Add listener to update loft on change
+  clubSelect.addEventListener("change", () => {
+    const selectedClub = clubSelect.value;
+    const clubInfo = clubData.find(c => c.name === selectedClub);
+    if (clubInfo && clubInfo.loft) {
+      document.getElementById("staticLoft").value = clubInfo.loft;
+    }
+  });
 }
 
 function getScratchCarry(club, swingSpeed) {
