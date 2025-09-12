@@ -59,6 +59,38 @@ function getScratchCarry(club, swingSpeed) {
   return null;
 }
 
+function getInterpolatedCarryByLoft(swingSpeed, inputLoft) {
+  const loftCarryPairs = [];
+
+  for (const [key, club] of Object.entries(clubData)) {
+    const loft = club.loft;
+    const carry = club.carry?.[swingSpeed.toString()];
+    if (typeof loft === "number" && typeof carry === "number") {
+      loftCarryPairs.push({ loft, carry });
+    }
+  }
+
+  // Sort by loft
+  loftCarryPairs.sort((a, b) => a.loft - b.loft);
+
+  // Interpolate
+  for (let i = 0; i < loftCarryPairs.length - 1; i++) {
+    const lower = loftCarryPairs[i];
+    const upper = loftCarryPairs[i + 1];
+
+    if (inputLoft >= lower.loft && inputLoft <= upper.loft) {
+      const ratio = (inputLoft - lower.loft) / (upper.loft - lower.loft);
+      return Math.round(lower.carry + ratio * (upper.carry - lower.carry));
+    }
+  }
+
+  // Outside range fallback
+  if (inputLoft < loftCarryPairs[0].loft) return loftCarryPairs[0].carry;
+  if (inputLoft > loftCarryPairs[loftCarryPairs.length - 1].loft) return loftCarryPairs[loftCarryPairs.length - 1].carry;
+
+  return null;
+}
+
 function calculate() {
   const club = document.getElementById("club").value;
   
@@ -85,7 +117,8 @@ function calculate() {
   }
 
   const metrics = clubMetrics[club];
-  const scratchCarry = getScratchCarry(club, swingSpeed);
+  const inputLoft = parseFloat(document.getElementById("staticLoft").value);
+  const scratchCarry = getInterpolatedCarryByLoft(swingSpeed, inputLoft);
   const scratchSpeed = clubData[club]?.swingSpeed;
   const scratchMaxCarry = getScratchCarry(club, scratchSpeed);
   const baselineCarry = noCompressionData[club].carry;
