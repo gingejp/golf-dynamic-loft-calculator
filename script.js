@@ -192,11 +192,12 @@ function calculate() {
   resultsHTML += `
     <strong>Your Measured Carry:</strong> ${actualCarry} yards<br/>
     <strong>Scratch Carry @ Your Swing Speed:</strong> ${scratchCarry ?? "N/A"} yards @ ${swingSpeed} mph<br/>
-    <strong>Scratch Carry @ Full Swing Speed:</strong> ${scratchMaxCarry ?? "N/A"} yards @ ${scratchSpeed} mph<br/>
+    <strong>Scratch Carry @ Full Swing Speed:</strong> ${scratchMaxCarry ?? "N/A"} yards @ ${adjustedScratchSpeed} mph<br/>
     <strong>Performance vs. Scratch @ Your Swing Speed:</strong> ${(actualCarry - scratchCarry).toFixed(1)} yards<br/>
     <strong>Performance vs. Scratch @ Full Swing Speed:</strong> ${(actualCarry - scratchMaxCarry).toFixed(1)} yards<br/>
     <strong>Club Static Loft:</strong> ${staticLoft.toFixed(1)}°<br/>
   `;
+  
 	
   resultsHTML += driverFlag
     ? `<strong>Estimated Dynamic Loft:</strong> N/A, <strong>Scratch Dynamic Loft:</strong> ${scratchDynamicLoft.toFixed(1)}°<br/>`
