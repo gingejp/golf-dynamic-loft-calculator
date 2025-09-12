@@ -63,13 +63,16 @@ function calculate() {
   const club = document.getElementById("club").value;
   
   document.getElementById("club").addEventListener("change", function () {
-	const selectedClub = this.value;
+	const selectedClubKey = this.value;
 	const loftInput = document.getElementById("staticLoft");
-	const clubInfo = clubData.find(c => c.name === selectedClub);
+	const clubInfo = clubData[selectedClubKey];
+
 	if (clubInfo && clubInfo.loft) {
-	loftInput.value = clubInfo.loft;
+		loftInput.value = clubInfo.loft;
+	} else {
+    loftInput.value = ""; // fallback if no loft found
 	}
-  }); 
+  });
   
   let swingSpeed = parseFloat(document.getElementById("swingSpeed").value);
   swingSpeed = Math.max(60, Math.min(130, swingSpeed));
