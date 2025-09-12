@@ -86,7 +86,8 @@ function calculate() {
 
   const metrics = clubMetrics[club];
   const clubInfo = clubData[club];
-  const staticLoft = parseFloat(document.getElementById("staticLoft").value);calculateonst standardLoft = clubInfo?.loft;
+  const staticLoft = parseFloat(document.getElementById("staticLoft").value);
+  const standardLoft = clubInfo?.loft;
   const loftDelta = standardLoft - staticLoft;
   const loftMultiplier = 0.01;
 
