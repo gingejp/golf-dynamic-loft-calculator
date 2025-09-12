@@ -85,7 +85,7 @@ function calculate() {
   }
 
   const metrics = clubMetrics[club];
-  const scratchCarry = getScratchCarry(club, swingSpeed);
+//  const scratchCarry = getScratchCarry(club, swingSpeed);
   const scratchSpeed = clubData[club]?.swingSpeed;
   const inputLoft = parseFloat(document.getElementById("staticLoft").value);
   const standardLoft = clubData[club]?.loft;
@@ -93,8 +93,13 @@ function calculate() {
 
   // You can tweak this multiplier to dial in realism
   const loftMultiplier = 0.015; // 1.5% swing speed change per degree
-  const adjustedScratchSpeed = scratchSpeed * (1 + loftDelta * loftMultiplier);
+//  const adjustedScratchSpeed = scratchSpeed * (1 + loftDelta * loftMultiplier);
+  const adjustedScratchSpeed = clubData[club]?.swingSpeed * (1 + loftDelta * loftMultiplier);
+  const adjustedUserSpeed = swingSpeed * (1 + loftDelta * loftMultiplier);
+
   const scratchMaxCarry = getScratchCarry(club, adjustedScratchSpeed);
+  const scratchCarry = getScratchCarry(club, adjustedUserSpeed);       // user speed
+
 //  const scratchMaxCarry = getScratchCarry(club, scratchSpeed);
   document.getElementById("results").innerHTML += `<p style="font-size:0.85rem;color:#666;">
 	Scratch carry adjusted for loft: ${inputLoft}° → ${Math.round(adjustedScratchSpeed)} mph swing speed
