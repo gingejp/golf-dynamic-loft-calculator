@@ -85,30 +85,24 @@ function calculate() {
   }
 
   const metrics = clubMetrics[club];
-//  const scratchCarry = getScratchCarry(club, swingSpeed);
-  const scratchSpeed = clubData[club]?.swingSpeed;
-  const staticLoft = parseFloat(document.getElementById("staticLoft").value);
-  const standardLoft = clubData[club]?.loft;
-  const loftDelta = standardLoft - staticLoft; // positive if user input is stronger
+  const clubInfo = clubData[club];
+  const staticLoft = parseFloat(document.getElementById("staticLoft").value);calculateonst standardLoft = clubInfo?.loft;
+  const loftDelta = standardLoft - staticLoft;
+  const loftMultiplier = 0.01;
 
-  // You can tweak this multiplier to dial in realism
-  const loftMultiplier = 0.01; // 1.5% swing speed change per degree
-//  const adjustedScratchSpeed = scratchSpeed * (1 + loftDelta * loftMultiplier);
-  const adjustedScratchSpeed = clubData[club]?.swingSpeed * (1 + loftDelta * loftMultiplier);
+  const adjustedScratchSpeed = clubInfo?.swingSpeed * (1 + loftDelta * loftMultiplier);
   const adjustedUserSpeed = swingSpeed * (1 + loftDelta * loftMultiplier);
 
+  const scratchCarry = getScratchCarry(club, adjustedUserSpeed);
   const scratchMaxCarry = getScratchCarry(club, adjustedScratchSpeed);
-  const scratchCarry = getScratchCarry(club, adjustedUserSpeed);       // user speed
 
-//  const scratchMaxCarry = getScratchCarry(club, scratchSpeed);
-  
   const baselineCarry = noCompressionData[club].carry;
-//  const staticLoft = clubData[club]?.loft;
   const scratchDynamicLoft = metrics.dynamicLoft;
   const scratchShaftLean = staticLoft - scratchDynamicLoft;
+
   const carryRange = scratchCarry - baselineCarry;
   const carryAboveBaseline = Math.max(0, actualCarry - baselineCarry);
-  const performanceRatio = (actualCarry - baselineCarry) / carryRange;
+  const performanceRatio = carryRange !== 0 ? carryAboveBaseline / carryRange : 0;
 
   let estimatedDynamicLoft = staticLoft - (scratchShaftLean * performanceRatio);
   const loftWarning = document.getElementById("loftWarning");
@@ -202,10 +196,6 @@ function calculate() {
     <strong>Performance vs. Scratch @ Full Swing Speed:</strong> ${(actualCarry - scratchMaxCarry).toFixed(1)} yards<br/>
     <strong>Club Static Loft:</strong> ${staticLoft.toFixed(1)}°<br/>
   `;
-  
-  resultsHTML += `<p style="font-size:0.85rem;color:#666;">
-	Scratch carry adjusted for loft: ${staticLoft}° → ${Math.round(adjustedScratchSpeed)} mph swing speed
-	</p>`;
 	
   resultsHTML += driverFlag
     ? `<strong>Estimated Dynamic Loft:</strong> N/A, <strong>Scratch Dynamic Loft:</strong> ${scratchDynamicLoft.toFixed(1)}°<br/>`
