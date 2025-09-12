@@ -15,26 +15,25 @@ async function loadData() {
  
 function populateClubSelector() {
   const clubSelect = document.getElementById("club");
-  clubSelect.innerHTML = ""; // Clear existing options
+  const loftInput = document.getElementById("staticLoft");
 
-  clubData.forEach(club => {
-    const option = document.createElement("option");
-    option.value = club.name;
-    option.textContent = club.name;
-    clubSelect.appendChild(option);
-  });
+  // Populate dropdown
+  clubSelect.innerHTML = Object.entries(clubData)
+    .map(([key, value]) => `<option value="${key}">${value.name} (${value.loft}°)</option>`)
+    .join("");
 
   // Set initial loft based on first club
-  if (clubData.length > 0) {
-    document.getElementById("staticLoft").value = clubData[0].loft;
+  const firstKey = Object.keys(clubData)[0];
+  if (firstKey) {
+    loftInput.value = clubData[firstKey].loft;
   }
 
-  // Add listener to update loft on change
+  // Update loft when club changes
   clubSelect.addEventListener("change", () => {
-    const selectedClub = clubSelect.value;
-    const clubInfo = clubData.find(c => c.name === selectedClub);
-    if (clubInfo && clubInfo.loft) {
-      document.getElementById("staticLoft").value = clubInfo.loft;
+    const selectedKey = clubSelect.value;
+    const selectedClub = clubData[selectedKey];
+    if (selectedClub && selectedClub.loft) {
+      loftInput.value = selectedClub.loft;
     }
   });
 }
