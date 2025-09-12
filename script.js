@@ -43,6 +43,16 @@ function getScratchCarry(club, swingSpeed) {
 
 function calculate() {
   const club = document.getElementById("club").value;
+  
+  document.getElementById("club").addEventListener("change", function () {
+	const selectedClub = this.value;
+	const loftInput = document.getElementById("staticLoft");
+	const clubInfo = clubData.find(c => c.name === selectedClub);
+	if (clubInfo && clubInfo.loft) {
+	loftInput.value = clubInfo.loft;
+	}
+  }); 
+  
   let swingSpeed = parseFloat(document.getElementById("swingSpeed").value);
   swingSpeed = Math.max(60, Math.min(130, swingSpeed));
   document.getElementById("swingSpeed").value = swingSpeed;

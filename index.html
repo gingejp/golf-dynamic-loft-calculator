@@ -28,12 +28,53 @@
       <img src="images/advertise-here-logo.png" alt="Advertise Here" title="Interested in advertising? Click to contact me!" />
     </a>
   </header>
+  
+  <p class="tool-note">
+  This tool provides a simplified estimation of dynamic loft, based from your own swing speed and carry distance.<br/>
+  It’s designed to estimate how much dynamic loft is offered at impact and to highlight the difference from a scratch golfer.<br/>
+  It's simple by design and assumptions have been made, such as a clean strike. It is clearly not supposed to be as accurate as launch monitor data.<br/>
+  Static loft consists of shaft lean angle and the angle of attack. There is no way of knowing how much is due to each, with this simple estimation.  
+</p>
+
+<section id="swing-speed-guide">
+  <h2>Estimated Swing Speeds by Club and Skill Level</h2>
+  <div class="swing-speed-wrapper">
+    
+    <div class="swing-speed-table">
+      <table>
+        <thead>
+          <tr>
+            <th>Club</th>
+            <th>Beginner</th>
+            <th>Average Amateur</th>
+            <th>Scratch Golfer</th>
+            <th>PGA Tour</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td>Driver</td><td>70–85 mph</td><td>90–100 mph</td><td>105–108 mph</td><td>113 mph</td></tr>
+          <tr><td>7 Iron</td><td>60–70 mph</td><td>75–85 mph</td><td>86–90 mph</td><td>90 mph</td></tr>
+          <tr><td>Pitching Wedge</td><td>50–60 mph</td><td>65–75 mph</td><td>78–83 mph</td><td>83 mph</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="swing-speed-notes">
+      <p><strong>Here's a handy guide</strong> if you're unsure of your swing speed.</p>
+      <p><strong>Note:</strong> Swing speeds tend to reduce with age, so use this chart as a general reference—not a strict benchmark.</p>
+    </div>
+
+  </div>
+</section>
 
   <main>	
   <div class="container">
     <div class="form-section">
       <label for="club">Select Club:</label>
       <select id="club"></select>
+	  
+	  <label for="staticLoft">Static Loft (°):</label>
+      <input type="number" id="staticLoft" step="0.1" />
 
       <label for="swingSpeed">Swing Speed (mph): (Range 60 - 130):</label>
       <input type="number" id="swingSpeed" value="90" />
@@ -54,11 +95,11 @@
 
   <section id="loft-section">
     <h2>What Is Dynamic Loft and Why Is It Important?</h2>
-    <p><strong>Dynamic loft</strong> is the angle of the clubface at the moment it contacts the ball. It differs from <em>static loft</em>, which is the club’s built-in angle when stationary. Dynamic loft is influenced by how the golfer swings—wrist position, shaft lean, and angle of attack all affect it.</p>
-    <p><strong>Why dynamic loft matters:</strong> It controls the initial height (launch angle) and spin of the ball. Too much dynamic loft sends the ball too high, causing excess spin and loss of distance. Too little loft produces low shots that may roll too far and be hard to control. Finding the right dynamic loft helps maximize distance and accuracy by ensuring an optimal ball flight.</p>
-    <p>It also reflects <strong>swing efficiency</strong>. Golfers who “cast” or flip their wrists often increase dynamic loft too much, leading to weaker shots. Conversely, players who maintain proper shaft lean deliver lower dynamic loft for better compression and distance.</p>
-    <p>Different clubs and shots require different dynamic lofts. Drivers usually benefit from lower dynamic loft to maximize distance, while wedges need higher loft for control and spin.</p>
-    <p><strong>In summary:</strong> Dynamic loft is a key factor in shot consistency, distance, and control. Learning to manage it helps golfers improve ball flight and overall performance.</p>
+    <p><strong>Dynamic loft</strong> is the angle of the clubface at the moment of contact with the ball. It differs from <em>static loft</em>, which is the club’s built-in angle when stationary. Dynamic loft is influenced by how the golfer swings, wrist position, shaft lean and angle of attack.</p>
+    <p><strong>Why dynamic loft matters:</strong> It controls the initial height (launch angle) and spin of the ball. Too much dynamic loft sends the ball too high, causing excess spin and loss of distance. Too little loft produces low shots that may roll out too far and be hard to control. Finding the right dynamic loft helps maximize distance and accuracy by ensuring an optimal ball flight.</p>
+    <p>It also reflects <strong>swing efficiency</strong>. Golfers who “cast” or flip their wrists often offer too muc dynamic loft, leading to weaker shots and less distance than optimal. Conversely, players who maintain proper shaft lean deliver lower dynamic loft for better compression and distance.</p>
+    <p>Different clubs and shots require different dynamic lofts. Drivers benefit from lower dynamic loft and a positive angle of attack to maximize distance, while wedges need higher loft for control and spin.</p>
+    <p><strong>In summary:</strong> Dynamic loft is a key factor in shot consistency, distance, and control. Learning to manage it helps golfers improve ball flight and overall performance on the course.</p>
   </section>
 
   <div class="illustration-section">
@@ -72,8 +113,8 @@
       <p class="caption">Casting v Compession</p>	
       <p>The illustration above shows the difference, between body and club position when casting, or good compression.
 		The golfer needs to have his weight towards his lead foot and his hands well forward at point of impact.<br>
-        Better compression often requires hands-on swing analysis. Consider booking a lesson with a qualified golf pro to refine these body mechanics.<br>
-        An online tool can only take you so far.
+        Obtaining better compression often requires hands-on swing analysis. Consider booking a lesson with a qualified golf pro to refine these body mechanics.<br>
+        If this tool is showing far more dynamic loft than ideal, you'll almost certainly benefit from a few lessons.
       </p>
     </div>
   </div>
@@ -82,7 +123,7 @@
     <div id="about">
 	  <h3>About This Tool</h3>
 	  <p>GolfLoftCalc.com was created by a golfer with a background in data analysis and a passion for improving strike efficiency. This free tool helps players understand dynamic loft and optimize their swing for better launch, spin, and carry distance.</p>
-	  <p>The calculator is designed to be simple, fast, and accurate, by comparing to real world data from a scratch golfer. It’s ad-supported to stay free for everyone.</p>
+	  <p>The calculator is designed to be simple, fast, and accurate, by comparing to real world data from a scratch golfer.</p>
 	  <p>Feedback is always welcome. If you spot a bug or have an idea for improvement, please get in touch.</p>
 	</div>
 
