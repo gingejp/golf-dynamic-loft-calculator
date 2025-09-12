@@ -87,9 +87,9 @@ function calculate() {
   const metrics = clubMetrics[club];
 //  const scratchCarry = getScratchCarry(club, swingSpeed);
   const scratchSpeed = clubData[club]?.swingSpeed;
-  const inputLoft = parseFloat(document.getElementById("staticLoft").value);
+  const staticLoft = parseFloat(document.getElementById("staticLoft").value);
   const standardLoft = clubData[club]?.loft;
-  const loftDelta = standardLoft - inputLoft; // positive if user input is stronger
+  const loftDelta = standardLoft - staticLoft; // positive if user input is stronger
 
   // You can tweak this multiplier to dial in realism
   const loftMultiplier = 0.012; // 1.5% swing speed change per degree
@@ -103,7 +103,7 @@ function calculate() {
 //  const scratchMaxCarry = getScratchCarry(club, scratchSpeed);
   
   const baselineCarry = noCompressionData[club].carry;
-  const staticLoft = clubData[club]?.loft;
+//  const staticLoft = clubData[club]?.loft;
   const scratchDynamicLoft = metrics.dynamicLoft;
   const scratchShaftLean = staticLoft - scratchDynamicLoft;
   const carryRange = scratchCarry - baselineCarry;
